@@ -10,7 +10,7 @@
 
 ### Install From Release
 
-- Download the latest [Release](https://github.com/mago/gocover/releases) and extract it. 
+- Download the latest [Release](https://github.com/o-mago/gocover/releases) and extract it. 
 
 ### Install From Source
 

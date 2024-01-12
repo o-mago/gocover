@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/mago/gocover/pkg/annotation"
-	"github.com/mago/gocover/pkg/dbclient"
-	"github.com/mago/gocover/pkg/parser"
-	"github.com/mago/gocover/pkg/report"
+	"github.com/o-mago/gocover/pkg/annotation"
+	"github.com/o-mago/gocover/pkg/dbclient"
+	"github.com/o-mago/gocover/pkg/parser"
+	"github.com/o-mago/gocover/pkg/report"
 	"github.com/sirupsen/logrus"
 )
 

@@ -1,4 +1,4 @@
-module github.com/mago/gocover
+module github.com/o-mago/gocover
 
 go 1.20
 

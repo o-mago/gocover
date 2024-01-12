@@ -13,9 +13,9 @@ import (
 	"time"
 
 	"github.com/bmatcuk/doublestar/v4"
-	"github.com/mago/gocover/pkg/annotation"
-	"github.com/mago/gocover/pkg/dbclient"
-	"github.com/mago/gocover/pkg/report"
+	"github.com/o-mago/gocover/pkg/annotation"
+	"github.com/o-mago/gocover/pkg/dbclient"
+	"github.com/o-mago/gocover/pkg/report"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/mod/modfile"
 )
@@ -87,9 +87,9 @@ func reBuildStatistics(s *report.Statistics, cache excludeFileCache) {
 //
 //	rootRepoPath: /home/User/go/src/Azure/gocover
 //	fileNamePath: /home/User/go/src/Azure/gocover/pkg/foo/foo.go
-//	modulePath: github.com/mago/gocover
+//	modulePath: github.com/o-mago/gocover
 //
-// it returns github.com/mago/gocover/foo/foo.go
+// it returns github.com/o-mago/gocover/foo/foo.go
 func formatFilePath(rootRepoPath, fileNamePath, modulePath string) string {
 	return filepath.Join(modulePath,
 		strings.TrimPrefix(fileNamePath, rootRepoPath),
