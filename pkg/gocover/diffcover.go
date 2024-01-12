@@ -7,11 +7,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Azure/gocover/pkg/annotation"
-	"github.com/Azure/gocover/pkg/dbclient"
-	"github.com/Azure/gocover/pkg/gittool"
-	"github.com/Azure/gocover/pkg/parser"
-	"github.com/Azure/gocover/pkg/report"
+	"github.com/o-mago/gocover/pkg/annotation"
+	"github.com/o-mago/gocover/pkg/dbclient"
+	"github.com/o-mago/gocover/pkg/gittool"
+	"github.com/o-mago/gocover/pkg/parser"
+	"github.com/o-mago/gocover/pkg/report"
 	"github.com/sirupsen/logrus"
 )
 

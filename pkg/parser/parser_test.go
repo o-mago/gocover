@@ -3,7 +3,7 @@ package parser
 import (
 	"testing"
 
-	"github.com/Azure/gocover/pkg/gittool"
+	"github.com/o-mago/gocover/pkg/gittool"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/tools/cover"
@@ -11,14 +11,14 @@ import (
 
 var (
 	allPackages = []string{
-		"github.com/Azure/gocover/pkg/parser",
-		"github.com/Azure/gocover/pkg/report",
-		"github.com/Azure/gocover/pkg/gocover",
-		"github.com/Azure/gocover/pkg/gittool",
-		"github.com/Azure/gocover/pkg/dbclient",
-		"github.com/Azure/gocover/pkg/cmd",
-		"github.com/Azure/gocover/pkg/annotation",
-		"github.com/Azure/gocover",
+		"github.com/o-mago/gocover/pkg/parser",
+		"github.com/o-mago/gocover/pkg/report",
+		"github.com/o-mago/gocover/pkg/gocover",
+		"github.com/o-mago/gocover/pkg/gittool",
+		"github.com/o-mago/gocover/pkg/dbclient",
+		"github.com/o-mago/gocover/pkg/cmd",
+		"github.com/o-mago/gocover/pkg/annotation",
+		"github.com/o-mago/gocover",
 	}
 )
 
@@ -95,8 +95,8 @@ func TestParser(t *testing.T) {
 			assert.NoError(t, err)
 
 			expected := []string{
-				"github.com/Azure/gocover/pkg/parser/parser.go",
-				"github.com/Azure/gocover/pkg/gocover/executor.go",
+				"github.com/o-mago/gocover/pkg/parser/parser.go",
+				"github.com/o-mago/gocover/pkg/gocover/executor.go",
 			}
 			assert.Len(t, parser.coverProfiles, len(expected))
 			for _, profile := range parser.coverProfiles {

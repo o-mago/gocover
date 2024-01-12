@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Azure/gocover/pkg/dbclient"
-	"github.com/Azure/gocover/pkg/gocover"
+	"github.com/o-mago/gocover/pkg/dbclient"
+	"github.com/o-mago/gocover/pkg/gocover"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
@@ -26,7 +26,7 @@ export KUSTO_TENANT_ID=00000000-0000-0000-0000-000000000000
 export KUSTO_CLIENT_ID=00000000-0000-0000-0000-000000000000
 export KUSTO_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxx
 gocover diff --cover-profile=coverage.out --compare-branch=origin/master --format html --coverage-baseline 80.0 --output /tmp \
-	--host-path github.com/Azure/gocover \
+	--host-path github.com/o-mago/gocover \
 	--data-collection-enabled \
 	--endpoint https://your.kusto.windows.net/ \
 	--database kustodb_name \
@@ -40,14 +40,14 @@ Use this tool to generate coverage for go code at the module level.
 `
 
 	fullExample = `# Generate full coverage for go code at module level.
-gocover full --cover-profile coverage.out --host-path github.com/Azure/gocover
+gocover full --cover-profile coverage.out --host-path github.com/o-mago/gocover
 
 # # Generate full coverage for go code at module level and send the coverage data to kusto database.
 export KUSTO_TENANT_ID=00000000-0000-0000-0000-000000000000
 export KUSTO_CLIENT_ID=00000000-0000-0000-0000-000000000000
 export KUSTO_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxx
-gocover full --cover-profile coverage.out --host-path github.com/Azure/gocover \
-	--host-path github.com/Azure/gocover \
+gocover full --cover-profile coverage.out --host-path github.com/o-mago/gocover \
+	--host-path github.com/o-mago/gocover \
 	--data-collection-enabled \
 	--endpoint https://your.kusto.windows.net/ \
 	--database kustodb_name \

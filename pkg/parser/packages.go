@@ -7,7 +7,7 @@ import (
 	"os"
 	"sort"
 
-	"github.com/Azure/gocover/pkg/annotation"
+	"github.com/o-mago/gocover/pkg/annotation"
 )
 
 type Package struct {

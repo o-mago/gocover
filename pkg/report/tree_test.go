@@ -14,7 +14,7 @@ func beforeRun() {
 	//        |-- leaf20
 	//        |-- leaf21
 	root = &TreeNode{
-		Name: "github.com/Azure/gocover",
+		Name: "github.com/o-mago/gocover",
 		Nodes: map[string]*TreeNode{
 			"child1": {
 				Name: "child1",
@@ -125,7 +125,7 @@ func TestCoverageTree(t *testing.T) {
 	})
 
 	t.Run("FindOrCreate", func(t *testing.T) {
-		coverageTree := NewCoverageTree("github.com/Azure/gocover")
+		coverageTree := NewCoverageTree("github.com/o-mago/gocover")
 		node := coverageTree.FindOrCreate("pkg/util/bar.go")
 		if node.Name != "bar.go" {
 			t.Errorf("expect name of leaf node bar.go, but get %s", node.Name)
@@ -139,7 +139,7 @@ func TestCoverageTree(t *testing.T) {
 
 	// TODO: handle empty string
 	t.Run("FindOrCreate", func(t *testing.T) {
-		coverageTree := NewCoverageTree("github.com/Azure/gocover")
+		coverageTree := NewCoverageTree("github.com/o-mago/gocover")
 		node := coverageTree.FindOrCreate("")
 		if node.Name != "" {
 			t.Errorf("expect name of leaf node bar.go, but get %s", node.Name)
@@ -150,7 +150,7 @@ func TestCoverageTree(t *testing.T) {
 		beforeRun()
 
 		coverageTree := &coverageTree{
-			ModuleHostPath: "github.com/Azure/gocover",
+			ModuleHostPath: "github.com/o-mago/gocover",
 			Root:           root,
 		}
 		coverageTree.CollectCoverageData()
@@ -198,7 +198,7 @@ func TestCoverageTree(t *testing.T) {
 		beforeRun()
 
 		coverageTree := &coverageTree{
-			ModuleHostPath: "github.com/Azure/gocover",
+			ModuleHostPath: "github.com/o-mago/gocover",
 			Root:           root,
 		}
 		coverageTree.CollectCoverageData()

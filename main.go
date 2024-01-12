@@ -4,8 +4,8 @@ import (
 	"errors"
 	"os"
 
-	"github.com/Azure/gocover/pkg/cmd"
-	"github.com/Azure/gocover/pkg/gocover"
+	"github.com/o-mago/gocover/pkg/cmd"
+	"github.com/o-mago/gocover/pkg/gocover"
 )
 
 var (
