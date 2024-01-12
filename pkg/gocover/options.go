@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/Azure/gocover/pkg/dbclient"
+	"github.com/mago/gocover/pkg/dbclient"
 	"github.com/sirupsen/logrus"
 )
 

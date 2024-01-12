@@ -10,8 +10,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Azure/gocover/pkg/dbclient"
-	"github.com/Azure/gocover/pkg/report"
+	"github.com/mago/gocover/pkg/dbclient"
+	"github.com/mago/gocover/pkg/report"
 	"github.com/sirupsen/logrus"
 )
 
@@ -48,24 +48,24 @@ func TestInExclueds(t *testing.T) {
 		}{
 			{input: "mock_client/dbclient.go", expect: true},
 			{input: "/mock_client/dbclient.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/mock_client/interface.go", expect: true}, // first match
-			{input: "github.com/Azure/gocover/pkg/mock_client/interface.go", expect: true}, // second match, hit cache
-			{input: "github.com/Azure/gocover/pkg/mock_client/dbclient.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/mock_client.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/mock.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/mock_client/interface.go", expect: true}, // first match
+			{input: "github.com/mago/gocover/pkg/mock_client/interface.go", expect: true}, // second match, hit cache
+			{input: "github.com/mago/gocover/pkg/mock_client/dbclient.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/mock_client.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/mock.go", expect: true},
 			{input: "zz_generated.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/api/v1/zz_generated.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/api/v1/zz_generated.deepcopy.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/api/v1/zz_generated.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/api/v1/zz_generated.deepcopy.go", expect: true},
 			{input: "gocover.pb.go", expect: true},
-			{input: "github.com/Azure/gocover/protos/v1/gocover.pb.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/foo", expect: true},
-			{input: "github.com/Azure/gocover/pkg/foo/foo.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/foo/a/foo.go", expect: true},
-			{input: "github.com/Azure/gocover/pkg/client/dbclient.go", expect: false},
+			{input: "github.com/mago/gocover/protos/v1/gocover.pb.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/foo", expect: true},
+			{input: "github.com/mago/gocover/pkg/foo/foo.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/foo/a/foo.go", expect: true},
+			{input: "github.com/mago/gocover/pkg/client/dbclient.go", expect: false},
 		}
 
 		for _, testCase := range testSuites {
-			acutal := inExclueds(cache, []string{"**/mock_*/**", "**/zz_generated*.go", "**/*.pb.go", "**/mock*.go", "github.com/Azure/gocover/pkg/foo/**"}, testCase.input, logger)
+			acutal := inExclueds(cache, []string{"**/mock_*/**", "**/zz_generated*.go", "**/*.pb.go", "**/mock*.go", "github.com/mago/gocover/pkg/foo/**"}, testCase.input, logger)
 			// only care about linux os
 			if runtime.GOOS == "linux" {
 				if acutal != testCase.expect {
@@ -82,12 +82,12 @@ func TestFormatFilePath(t *testing.T) {
 			input  string
 			expect string
 		}{
-			{input: "/home/user/go/src/Azure/gocover/pkg/foo/foo.go", expect: "github.com/Azure/gocover/pkg/foo/foo.go"},
-			{input: "/src/pkg/foo/foo.go", expect: "github.com/Azure/gocover/src/pkg/foo/foo.go"},
+			{input: "/home/user/go/src/Azure/gocover/pkg/foo/foo.go", expect: "github.com/mago/gocover/pkg/foo/foo.go"},
+			{input: "/src/pkg/foo/foo.go", expect: "github.com/mago/gocover/src/pkg/foo/foo.go"},
 		}
 
 		for _, testCase := range testSuites {
-			acutal := formatFilePath("/home/user/go/src/Azure/gocover", testCase.input, "github.com/Azure/gocover")
+			acutal := formatFilePath("/home/user/go/src/Azure/gocover", testCase.input, "github.com/mago/gocover")
 			// only care about linux os
 			if runtime.GOOS == "linux" {
 				if acutal != testCase.expect {
@@ -106,7 +106,7 @@ func TestReBuildStatistics(t *testing.T) {
 				{TotalLines: 50, CoveredLines: 15, TotalEffectiveLines: 50, TotalIgnoredLines: 0},
 			},
 		}
-		cache := excludeFileCache{"github.com/Azure/gocover/pkg/foo/foo.go": true}
+		cache := excludeFileCache{"github.com/mago/gocover/pkg/foo/foo.go": true}
 		reBuildStatistics(s, cache)
 
 		expectCoveragePercent := calculateCoverage(30+15, 40+50)
@@ -249,8 +249,8 @@ func TestParseGoModulePath(t *testing.T) {
 		os.MkdirAll(filepath.Join(dir, "empty"), os.ModePerm)
 		os.MkdirAll(filepath.Join(dir, "nonexist"), os.ModePerm)
 
-		ioutil.WriteFile(filepath.Join(dir, "go.mod"), []byte("module github.com/Azure/gocover"), 0644)
-		ioutil.WriteFile(filepath.Join(dir, "foo/go.mod"), []byte("module github.com/Azure/gocover/foo"), 0644)
+		ioutil.WriteFile(filepath.Join(dir, "go.mod"), []byte("module github.com/mago/gocover"), 0644)
+		ioutil.WriteFile(filepath.Join(dir, "foo/go.mod"), []byte("module github.com/mago/gocover/foo"), 0644)
 		ioutil.WriteFile(filepath.Join(dir, "empty/go.mod"), []byte(""), 0644)
 
 		var testSuites = []struct {
@@ -258,8 +258,8 @@ func TestParseGoModulePath(t *testing.T) {
 			expect string
 			err    error
 		}{
-			{input: filepath.Join(dir, "."), expect: "github.com/Azure/gocover", err: nil},
-			{input: filepath.Join(dir, "foo"), expect: "github.com/Azure/gocover/foo", err: nil},
+			{input: filepath.Join(dir, "."), expect: "github.com/mago/gocover", err: nil},
+			{input: filepath.Join(dir, "foo"), expect: "github.com/mago/gocover/foo", err: nil},
 			{input: filepath.Join(dir, "empty"), expect: "", err: ErrModuleNotFound},
 			{input: filepath.Join(dir, "nonexist"), expect: "", err: errors.New("file not exists")},
 		}
