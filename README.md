@@ -150,13 +150,13 @@ func case5(x int) {                                //-|
 | --repository-path | The root path of repository |
 | --module-dir | Relative directory to the root repository path that contains `go.mod` file |
 | --timeout | Execute timeout in seconds, default is 3600 |
+| --coverage-baseline | The tool will return an error code if coverage is less than coverage baseline(%) |
 
 - Diff Coverage
 
 | Command Options | Definition |
 | --- | --- |
 | --branch-to-compare | branch to compare |
-| --coverage-baseline | The tool will return an error code if coverage is less than coverage baseline(%) |
 | --output | Diff coverage output file |
 | --format | Format of the diff coverage report, one of: html, json, markdown |
 | --excludes | Exclude files for diff coverage inspection |
